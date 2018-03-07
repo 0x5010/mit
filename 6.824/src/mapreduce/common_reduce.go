@@ -2,7 +2,6 @@ package mapreduce
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"os"
 	"sort"
@@ -52,8 +51,6 @@ func doReduce(
 	//
 	// Your code here (Part I).
 	//
-	fmt.Printf("Reduce: job name = %s, output file = %s, reduce task id = %d, nMap = %d\n", jobName, outFile, reduceTask, nMap)
-
 	m := map[string][]string{}
 
 	for i := 0; i < nMap; i++ {

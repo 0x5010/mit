@@ -2,7 +2,6 @@ package mapreduce
 
 import (
 	"encoding/json"
-	"fmt"
 	"hash/fnv"
 	"io/ioutil"
 	"log"
@@ -58,8 +57,6 @@ func doMap(
 	//
 	// Your code here (Part I).
 	//
-	fmt.Printf("Map: job name = %s, input file = %s, map task id = %d, nReduce = %d\n", jobName, inFile, mapTask, nReduce)
-
 	b, err := ioutil.ReadFile(inFile)
 	if err != nil {
 		log.Fatal("Unable to read file: ", inFile)
