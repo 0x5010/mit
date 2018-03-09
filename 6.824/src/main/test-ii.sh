@@ -1,4 +1,7 @@
 #!/bin/bash
+here=$(dirname "$0")
+[[ "$here" = /* ]] || here="$PWD/$here"
+export GOPATH="$here/../../"
 go run ii.go master sequential pg-*.txt
 
 # cause sort to be case sensitive.
