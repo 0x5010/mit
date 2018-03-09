@@ -68,11 +68,8 @@ func schedule(jobName string, mapFiles []string, nReduce int, phase jobPhase, re
 			TaskNumber:    i,
 			NumOtherPhase: n_other,
 		}
-		select {
-		case worker := <-readyChan:
-			go taskFunc(worker, args)
-		}
-
+		worker := <-readyChan
+		go taskFunc(worker, args)
 	}
 	wg.Wait()
 	cannel()
