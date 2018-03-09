@@ -1,4 +1,7 @@
 #!/bin/bash
+here=$(dirname "$0")
+[[ "$here" = /* ]] || here="$PWD/$here"
+export GOPATH="$here/../../"
 go run wc.go master sequential pg-*.txt
 sort -n -k2 mrtmp.wcseq | tail -10 | diff - mr-testout.txt > diff.out
 if [ -s diff.out ]
